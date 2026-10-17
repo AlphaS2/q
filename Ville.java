@@ -38,10 +38,11 @@ public class Ville {
     }
 
     // ************* ACCESSEURS(Getters) **********************************
-    
-    public static int getNombreInstancesBis(){
+
+    public static int getNombreInstancesBis() {
         return nbreInstancesBis;
     }
+
     // Retourne nom de la ville
     public String getNom() {
         return nomVille;
@@ -103,5 +104,10 @@ public class Ville {
         return str;
     }
 
-    
+    public String toString() {
+        return "\t" + this.nomVille + " est une ville de " + this.nomPays +
+                ", elle comporte : " + this.nbreHabitants +
+                " => elle est donc de catégorie : " + this.categorie;
+    }
+
 }

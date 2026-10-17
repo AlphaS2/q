@@ -27,12 +27,18 @@ public class Capitale extends Ville {
     /*
      * @return le nom du monument
      */
-    public String getMonument(){
+    public String getMonument() {
         return monument;
     }
 
     // Defini le nom du monument
-    public void setMonument(String monument){
+    public void setMonument(String monument) {
         this.monument = monument;
-    } 
+    }
+
+    public String toString() {
+        String str = super.toString() + "\n \t ==>>" +
+                this.monument + " en est un monument";
+        return str;
+    }
 }

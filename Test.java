@@ -135,18 +135,42 @@ public class Test {
          * return retour;
          */
 
-        Ville v = new Ville();
-        Ville v1 = new Ville("Marseille", 1236, "France");
-        Ville v2 = new  Ville("Rio", 321654, "Bresil");
+        /*
+         * Ville v = new Ville();
+         * Ville v1 = new Ville("Marseille", 1236, "France");
+         * Ville v2 = new Ville("Rio", 321654, "Bresil");
+         * 
+         * System.out.println("\n\n" + v1.decrisToi());
+         * System.out.println(v.decrisToi());
+         * System.out.println(v2.decrisToi() + "\n\n");
+         * System.out.println(v1.comparer(v2));
+         * 
+         * Capitale cap = new Capitale("Paris", 654987, "France", "La tour eiffel");
+         * System.out.println("\n"+cap.decrisToi());
+         */
 
-        System.out.println("\n\n" + v1.decrisToi());
-        System.out.println(v.decrisToi());
-        System.out.println(v2.decrisToi() + "\n\n");
-        System.out.println(v1.comparer(v2));
+        // Definition d'un tableau de ville null
+        Ville[] tableau = new Ville[6];
 
-        Capitale cap = new Capitale("Paris", 654987, "France", "La tour eiffel");
-        System.out.println("\n"+cap.decrisToi());
+        // un tableau de nom de ville et un autre de nombre d'habitants
+        String[] tab = { "Marseille", "lille", "caen", "Nante", "lyon", "paris" };
+        int[] tab2 = { 123456, 78546, 654987, 758365, 1594, 213 };
 
+        // les trois premier element du tableau seront des villes et le reste des
+        // capitales
+        for (int i = 0; i < 6; i++) {
+            if (i < 3) {
+                Ville v = new Ville(tab[i], tab2[i], "France");
+                tableau[i] = v;
+            } else {
+                Capitale c = new Capitale(tab[i], tab2[i], "France", "la Tour eiffel");
+                tableau[i] = c;
+            }
 
+        }
+        // il ne nous reste plus qu'a decrire tous notre tableau
+        for (Object obj : tableau) {
+            System.out.println(obj);
+        }
     }
 }
