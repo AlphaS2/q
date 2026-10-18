@@ -149,28 +149,50 @@ public class Test {
          * System.out.println("\n"+cap.decrisToi());
          */
 
-        // Definition d'un tableau de ville null
-        Ville[] tableau = new Ville[6];
+        /*
+         * // Definition d'un tableau de ville null
+         * Ville[] tableau = new Ville[6];
+         * 
+         * // un tableau de nom de ville et un autre de nombre d'habitants
+         * String[] tab = { "Marseille", "lille", "caen", "Nante", "lyon", "paris" };
+         * int[] tab2 = { 123456, 78546, 654987, 758365, 1594, 213 };
+         * 
+         * // les trois premier element du tableau seront des villes et le reste des
+         * // capitales
+         * for (int i = 0; i < 6; i++) {
+         * if (i < 3) {
+         * Ville v = new Ville(tab[i], tab2[i], "France");
+         * tableau[i] = v;
+         * } else {
+         * Capitale c = new Capitale(tab[i], tab2[i], "France", "la Tour eiffel");
+         * tableau[i] = c;
+         * }
+         * 
+         * }
+         * // il ne nous reste plus qu'a decrire tous notre tableau
+         * for (Object obj : tableau) {
+         * System.out.println(obj);
+         * }
+         */
 
-        // un tableau de nom de ville et un autre de nombre d'habitants
-        String[] tab = { "Marseille", "lille", "caen", "Nante", "lyon", "paris" };
-        int[] tab2 = { 123456, 78546, 654987, 758365, 1594, 213 };
-
-        // les trois premier element du tableau seront des villes et le reste des
-        // capitales
-        for (int i = 0; i < 6; i++) {
-            if (i < 3) {
-                Ville v = new Ville(tab[i], tab2[i], "France");
-                tableau[i] = v;
-            } else {
-                Capitale c = new Capitale(tab[i], tab2[i], "France", "la Tour eiffel");
-                tableau[i] = c;
+        Ville v = null;
+        try {
+             v = new Ville("Re", -12000, "France");
+        } 
+        //Gestion de l'exception sur le nombre d'habitants
+        catch (NombreHabitantException e) { 
+            e.printStackTrace();
+        }
+        //Gestion de l'exception sur le nom de la ville
+        catch(NomVilleException e2){
+            System.out.println(e2.getMessage());
+        }
+        finally{
+            if (v == null) {
+                v = new Ville();
             }
+        }
 
-        }
-        // il ne nous reste plus qu'a decrire tous notre tableau
-        for (Object obj : tableau) {
-            System.out.println(obj);
-        }
+         System.out.println(v.toString());
     }
 }

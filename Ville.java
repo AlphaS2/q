@@ -18,7 +18,7 @@ public class Ville {
         // On incremente nos variable a chaque appel aux constructeurs
         nbreInstances++;
         nbreInstancesBis++;
-        System.out.println("Creation d'une ville !");
+
         nomVille = "inconnu";
         nomPays = "inconnu";
         nbreHabitants = 0;
@@ -26,15 +26,23 @@ public class Ville {
     }
 
     // Constructeur avec parametre
-    public Ville(String pNom, int pNbre, String pPays) {
-        // On incremente nos variable a chaque appel aux constructeurs
-        nbreInstances++;
-        nbreInstancesBis++;
-        System.out.println("Creation d'une ville avec parametre !");
-        nomVille = pNom;
-        nomPays = pPays;
-        nbreHabitants = pNbre;
-        this.setCategorie();
+    public Ville(String pNom, int pNbre, String pPays)
+            throws NombreHabitantException, NomVilleException {
+        if (pNbre < 0)
+            throw new NombreHabitantException(pNbre);
+        if(pNom.length() < 3)
+            throw new NomVilleException("le nom de la ville est inférieur à 3 caractères ! nom = " + pNom);
+        else {
+            // On incremente nos variable a chaque appel aux constructeurs
+            nbreInstances++;
+            nbreInstancesBis++;
+
+            nomVille = pNom;
+            nomPays = pPays;
+            nbreHabitants = pNbre;
+            this.setCategorie();
+        }
+
     }
 
     // ************* ACCESSEURS(Getters) **********************************
